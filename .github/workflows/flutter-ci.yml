@@ -30,14 +30,29 @@ jobs:
       - name: Install Dependencies
         run: flutter pub get
 
-      - name: Run Tests
+      - name: Run Unit Tests
         run: flutter test
 
-      - name: Build APK
-        run: flutter build apk --release
+      - name: Run Integration Tests
+        run: flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart
+
+      - name: Set Build Version
+        id: version
+        run: echo "BUILD_VERSION=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+
+      - name: Build APK with Version
+        run: flutter build apk --release --build-name=${{ env.BUILD_VERSION }} --build-number=1
 
       - name: Upload APK as Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: app-release-apk
+          name: app-release-${{ env.BUILD_VERSION }}
           path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Upload APK to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          groups: testers
+          file: build/app/outputs/flutter-apk/app-release.apk

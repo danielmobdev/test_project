@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "284973373235",
+    "project_id": "test-project-638e1",
+    "storage_bucket": "test-project-638e1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284973373235:android:c44ae45b809a6aadfd9046",
+        "android_client_info": {
+          "package_name": "com.danielflutter.dan_ai_admin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK98QYrgOpz6qlxKBAp7-rGB0XPHc8_Hw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

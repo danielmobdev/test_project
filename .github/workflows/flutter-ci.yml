@@ -50,3 +50,9 @@ jobs:
           serviceCredentialsFileContent: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
           groups: testers
           file: build/app/outputs/flutter-apk/app-release.apk
+          debug: true
+        env:
+          JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.13-11/x64
+          FLUTTER_ROOT: /opt/hostedtoolcache/flutter/stable-3.27.1-x64
+          PUB_CACHE: /home/runner/.pub-cache
+          BUILD_VERSION: ${{ env.BUILD_VERSION }}

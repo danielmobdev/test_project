@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app-release-${{ env.BUILD_VERSION }}
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: cd /Users/danielisaacithi/Desktop/FlutterProjects/danai/danaiapp/test_project/flutter build apk --release
 
       - name: Upload APK to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1

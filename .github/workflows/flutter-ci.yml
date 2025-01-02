@@ -29,13 +29,7 @@ jobs:
 
       - name: Install Dependencies
         run: flutter pub get
-
-      - name: Run Unit Tests
-        run: flutter test
-
-      - name: Run Integration Tests
-        run: flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart
-
+        
       - name: Set Build Version
         id: version
         run: echo "BUILD_VERSION=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV

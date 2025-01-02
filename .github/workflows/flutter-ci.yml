@@ -43,8 +43,6 @@ jobs:
       - name: List APK Files
         run: ls -la build/app/outputs/flutter-apk/
 
-
-
       - name: Upload artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
